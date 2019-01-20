@@ -29,11 +29,11 @@ def main():
     X_test = read_nth_column(0, filename)
     y_test = read_nth_column(1, filename)
 
-    est_gp = SymbolicRegressor(population_size=5000, generations=100,
+    est_gp = SymbolicRegressor(population_size=5000, generations=30,
                                p_crossover=0.7, p_subtree_mutation=0.1,
                                p_hoist_mutation=0.05, p_point_mutation=0.1, verbose=1,
                                parsimony_coefficient=0.01, random_state=0,
-                               function_set=('add', 'sub', 'mul', 'div', 'sin', 'cos', 'sqrt'))
+                               function_set=('add', 'sub', 'mul', 'div', 'sin', 'cos', 'sqrt', 'log'))
     est_gp.fit(x_train, y_train)
 
     print(est_gp._program)
